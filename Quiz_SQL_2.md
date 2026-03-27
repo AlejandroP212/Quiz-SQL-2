@@ -49,13 +49,13 @@ CREATE TABLE tic_sedes_resumen (
 
 ---
 
-## Punto 4: Conteo de sedes con actividad '05' por departamento
+## Punto 4: Conteo de sedes con actividad '5' por departamento
 
-### Consulta A — Completar registros vacíos con actividad 05
+### Consulta A — Completar registros vacíos con actividad 5
 ```sql
 UPDATE tic_2023
 SET 
-    actividad_codigo = '05',
+    actividad_codigo = '5',
     actividad_nombre = 'Consulta de contenidos pedagógicos, mediante buscadores en internet'
 WHERE actividad_codigo IS NULL;
 ```
@@ -63,7 +63,7 @@ WHERE actividad_codigo IS NULL;
 ```sql
 UPDATE tic_2022
 SET 
-    actividad_codigo = '05',
+    actividad_codigo = '5',
     actividad_nombre = 'Consulta de contenidos pedagógicos, mediante buscadores en internet'
 WHERE actividad_codigo IS NULL;
 ```
@@ -74,7 +74,7 @@ SELECT
     SUBSTR(sede_codigo, 1, 2) departamento,
     COUNT(DISTINCT sede_codigo) total_sedes
 FROM tic_2023
-WHERE actividad_codigo = '05'
+WHERE actividad_codigo = '5'
 GROUP BY SUBSTR(sede_codigo, 1, 2)
 HAVING COUNT(DISTINCT sede_codigo) > 500
 ORDER BY total_sedes DESC;
