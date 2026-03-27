@@ -1,11 +1,9 @@
--- ============================================
+
 -- QUIZ SQL 2 - Bienes TIC para Enseñanza
 -- Dataset: DANE / MEN (2022 y 2023)
--- ============================================
 
--- ============================================
--- PUNTO 1: Exploración de tic_2023
--- ============================================
+
+-- PUNTO 1: 
 
 -- Consulta A: Todos los registros de tic_2023
 SELECT * FROM tic_2023;
@@ -14,11 +12,8 @@ SELECT * FROM tic_2023;
 SELECT DISTINCT actividad_nombre FROM tic_2023;
 
 
--- ============================================
--- PUNTO 2: Reporte de reconocimiento de tic_2022
--- ============================================
+-- PUNTO 2: 
 
--- Exploración básica de tic_2022 con alias
 SELECT 
     sede_codigo codigo_sede,
     periodo_anio anio_reporte,
@@ -30,9 +25,8 @@ ORDER BY sede_codigo ASC
 LIMIT 50;
 
 
--- ============================================
--- PUNTO 3: Creación de tabla tic_sedes_resumen
--- ============================================
+
+-- PUNTO 3: 
 
 CREATE TABLE tic_sedes_resumen (
     resumen_id INT PRIMARY KEY,
@@ -45,11 +39,9 @@ CREATE TABLE tic_sedes_resumen (
 );
 
 
--- ============================================
--- PUNTO 4: Conteo de sedes con actividad '05' por departamento
--- ============================================
+-- PUNTO 4:
 
--- Paso previo: Completar registros vacíos con actividad 05
+-- Consulta A:
 UPDATE tic_2023
 SET 
     actividad_codigo = '05',
@@ -73,9 +65,7 @@ HAVING COUNT(DISTINCT sede_codigo) > 500
 ORDER BY total_sedes DESC;
 
 
--- ============================================
--- PUNTO 5: Comparación entre 2022 y 2023
--- ============================================
+-- PUNTO 5:
 
 SELECT 
     t22.sede_codigo codigo_sede,
